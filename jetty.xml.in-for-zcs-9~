@@ -542,7 +542,7 @@
 		</New>
 	    </Arg>
         </Call>
-        <!--
+       	<!-- 
           Allow only certauth URL on the SSL client cert port.
           If the URl does not match the regex, return http 403.
           Put this rule after the legacy rules (addRewriteRule) so this rule
@@ -589,13 +589,13 @@
 	    </Arg>
         </Call>
 	<Call name="addRule">
-	    <Arg>        
-		<New class="org.eclipse.jetty.rewrite.handler.RewritePatternRule">
-		    <Set name="pattern">/z-push/*</Set>
-		    <Set name="replacement">/z-push</Set>
-		    <Set name="terminating">true</Set>
-		</New>
-	    </Arg>
+            <Arg>        
+                <New class="org.eclipse.jetty.rewrite.handler.RewritePatternRule">
+                    <Set name="pattern">/z-push/*</Set>
+                    <Set name="replacement">/z-push</Set>
+                    <Set name="terminating">true</Set>
+                </New>
+            </Arg>
         </Call>
         <Call name="addRule">
 	    <Arg>        
@@ -615,15 +615,15 @@
 		</New>
 	    </Arg>
         </Call>                               
-        <!-- assume all other requests handled by zimbra webapp -->
+         
         <Call name="addRule">
-	    <Arg>
-		<New class="org.eclipse.jetty.rewrite.handler.HeaderPatternRule">
-		    <Set name="pattern">/modern/.*/bundle.*</Set>
-		    <Set name="name">Cache-Control</Set>
-		    <Set name="value">Max-Age=31536000,public</Set>
-		</New>
- 	    </Arg>
+          <Arg>
+            <New class="org.eclipse.jetty.rewrite.handler.HeaderPatternRule">
+              <Set name="pattern">/modern/.*/bundle.*</Set>
+              <Set name="name">Cache-Control</Set>
+              <Set name="value">Max-Age=31536000,public</Set>
+            </New>
+          </Arg>
         </Call>
 
         <Call name="addRule">
@@ -776,9 +776,9 @@
       </Get>
       <Call name="setAttribute">
         <Arg>org.eclipse.jetty.server.webapp.ContainerIncludeJarPattern</Arg>
-		<Arg>.*/.*jsp-api-[^/]*\.jar$|.*/.*jsp-[^/]*\.jar$|.*/.*taglibs[^/]*\.jar$</Arg>
+                <Arg>.*/.*jsp-api-[^/]*\.jar$|.*/.*jsp-[^/]*\.jar$|.*/.*taglibs[^/]*\.jar$</Arg>
       </Call> 
-    </New>
+    </New> 
 
     <!-- ZIMBRAADMINWEBAPPBEGIN %%comment SERVICE:zimbraAdmin,-->%%
     <New id="zimbraAdmin" class="org.eclipse.jetty.webapp.WebAppContext">
